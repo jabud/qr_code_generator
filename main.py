@@ -16,7 +16,7 @@ def generate_qr():
 
     # Save the QR code into a memory buffer as PNG
     out = io.BytesIO()
-    qrcode.save(out, scale=5, kind='png')
+    qrcode.save(out, scale=7, kind='png')
     out.seek(0)  # Important to let PIL / Pillow load the image
     my_image = Image.open(out)  # Done, do what ever you want with the PIL/Pillow image
     
@@ -29,3 +29,8 @@ def generate_qr():
     #Create new tag and insert into page
     img = document.querySelector("#A")
     img.src = window.URL.createObjectURL(image_file)
+
+    # Download image when click on button download
+    download_btn = document.querySelector("#download-btn")
+    download_btn.href = img.src
+    download_btn.download = "qrcode.png"

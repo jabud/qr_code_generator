@@ -10,18 +10,51 @@
 <body>
     <py-config src="./pyscript.toml"></py-config>
     <py-script src="./main.py"></py-script>
-    <h1>Welcome to QR Generator</h1>
+    <h1>Generador de código QR</h1>
     <p>
-        Simply add the text you want to convert in the text input below and click "Create QR Code".
-
-        The result QR Code will generated for you.
+        Agrega el texto o URL que quieres convertir a QR escribiéndolo en el campo de texto a continuación y haz clic en "Crear código QR".
     </p>
     <div>
-        <input id="qr_content" class="py-input" type="text" value="https://pyscript.com" />
+        <input id="qr_content" class="py-input" type="text" value="Tu texto aquí" />
         <button id="generate-btn" class="py-button" type="submit">
-            Create QR Code!
+            Crear código QR
         </button>
     </div>
     <img id="A" />
+    <br>
+    <a id="download-btn" class="py-button" style="display:none;" href="#" download="qrcode.png">
+        Descargar
+    </a>
+    <script>
+        // Show the download button only after the image is generated
+        const img = document.querySelector("#A");
+        img.addEventListener("load", function() {
+            const downloadBtn = document.querySelector("#download-btn");
+            downloadBtn.style.display = "inline-block";
+        });
+    </script>
 </body>
 </html>
+
+<style>
+    body {
+        text-align: center;
+        margin: 0;
+        padding: 20px;
+        font-family: Arial, sans-serif;
+    }
+    a {
+        text-align: center;
+    }
+    img {
+        margin-top: 20px;
+    }
+    .py-input {
+        width: 300px;
+        padding: 10px;
+        margin-right: 10px;
+    }
+    .py-button {
+        padding: 10px 20px;
+    }
+</style>

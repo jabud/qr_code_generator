@@ -1,2 +1,2 @@
 packages = [ "segno", "pillow",]
-name = "QR Core Generator Copy"
+name = "QR Core Generator"
